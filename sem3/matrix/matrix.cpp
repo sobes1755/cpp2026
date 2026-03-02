@@ -181,7 +181,7 @@ int main()
 
     std::cout << "Iterating by cols (default):\n";
 
-    for (auto col : M.cols) {
+    for (auto col : M) {
         std::cout << "col^T = ";
         for (auto v: col) std::cout << v << " ";
         std::cout << "\n";

@@ -84,6 +84,8 @@ main()
 
     // static_assert(GFprime<3>::tables_.mul_[1][1] == 1);  // make tables_ public to check this...
 
+    a *= 1;
+
     auto sum = a + b;
     auto dif = a - b;
     auto mul = a * b;
