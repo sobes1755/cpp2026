@@ -17,7 +17,7 @@ vptr: vptr.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@ -Wno-invalid-offsetof -Wno-pmf-conversions
 
 catbarks: catbarks.cpp
-	$(CXX) $< -o $@ -Wall -Wextra -Werror -std=c++23 -O1
+	$(CXX) $< -o $@ -Wall -Wextra -Werror -std=c++23 -O0
 
 %: %.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@

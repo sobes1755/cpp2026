@@ -42,20 +42,26 @@ main()
     Dog dog("Шарик");
     Cat cat("Матроскин");
 
-    Pet* p1{&dog};
+//    dog.talk();  // Эта конструкция оптимизируется даже с -O0.
+//    cat.talk();
+
+    Pet* p1{&dog};  // Эта конструкция не оптимизируется до -O1 включительно.
     Pet* p2{&cat};
 
     p1->talk();  // Шарик: "Гав!"
     p2->talk();  // Матроскин: "Мяу!"
 
-    void** dog_vptr = (void**)&dog;
-    void** cat_vptr = (void**)&cat;
+    void** ptr2dogvptr = (void**)&dog;
+    void** ptr2catvptr = (void**)&cat;
 
-    std::swap(*dog_vptr, *cat_vptr);
+    std::swap(*ptr2dogvptr, *ptr2catvptr);
+
+//    dog.talk();
+//    cat.talk();
 
     p1->talk();  // Шарик (мусор в lives?): "Мяу!"
     p2->talk();  // Матроскин: "Гав!"
 
-    std::swap(*dog_vptr, *cat_vptr);
+    std::swap(*ptr2dogvptr, *ptr2catvptr);
 
 }
