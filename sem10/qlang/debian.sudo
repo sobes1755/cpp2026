@@ -1,3 +1,0 @@
-sudo apt update
-sudo apt install antlr4
-sudo apt install libantlr4-runtime-dev
